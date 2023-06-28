@@ -1,0 +1,8 @@
+<app-add-compo (todoAdd)="AddTodo($event)"></app-add-compo>
+<h4>My To-Do</h4>
+<div *ngIf="this.todos.length==0;else elseBlock">No Blocks To Display</div>
+<ng-template #elseBlock>
+<div *ngFor="let todo of todos" >
+<app-todo-items [todo]="todo"(todoDelete)="deleteTodo($event)"></app-todo-items>
+</div>
+</ng-template>
